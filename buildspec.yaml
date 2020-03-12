@@ -14,6 +14,10 @@ phases:
   post_build:
     commands:
       - pipenv run sam package --template-file template.yaml --s3-bucket pipeline-bucket-test-manpreet --output-template-file packaged-template.yaml
+  deploy:
+    commands:
+      - pipenv run sam deploy --template-file  packaged-template.yaml --region ap-south-1 --capabilities CAPABILITY_IAM --stack-name pipeline-auto
 artifacts:
   files:
+    - template.yaml
     - packaged-template.yaml
