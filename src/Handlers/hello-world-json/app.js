@@ -1,4 +1,4 @@
-const config = require('../../config/config');
+// const config = require('../../config/config');
 
 /**
  *
@@ -14,20 +14,5 @@ const config = require('../../config/config');
  */
 exports.helloWorldJsonHandler = async (event, context) => {
     let response;
-    try {
-        response = {
-            'statusCode': 200,
-            'body': JSON.stringify({
-                message: `Hello from ${config.firstFunction} - Demo`
-            }),
-            'headers': {
-                'Content-Type': 'application/json'
-            }
-        }
-    } catch (err) {
-        console.log(err);
-        return err;
-    }
-
-    return response
+    return "Hello World"
 };
