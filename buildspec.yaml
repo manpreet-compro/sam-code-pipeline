@@ -4,11 +4,12 @@ phases:
     runtime-versions:
       nodejs: 10
       python: 3.8
-  build:
     commands:
       - pip install --upgrade pip
       - pip install pipenv --user
       - pipenv install awscli aws-sam-cli
+  build:
+    commands:
       - pipenv run sam package --template-file template.yaml --s3-bucket pipeline-bucket-test-manpreet --output-template-file packaged-template.yaml
 artifacts:
   files:
