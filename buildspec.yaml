@@ -10,6 +10,9 @@ phases:
       - pipenv install awscli aws-sam-cli
   build:
     commands:
+      - pipenv run sam build
+  post_build:
+    commands:
       - pipenv run sam package --template-file template.yaml --s3-bucket pipeline-bucket-test-manpreet --output-template-file packaged-template.yaml
 artifacts:
   files:
