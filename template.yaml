@@ -1,0 +1,10 @@
+Transform: AWS::Serverless-2016-10-31
+Description: Hello World Function
+
+Resources:
+  HelloWorldJsonFunctionDemo:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.helloWorldJsonHandler
+      Runtime: nodejs10.x
+      CodeUri: ./src/Handlers/hello-world-json
