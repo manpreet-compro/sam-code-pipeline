@@ -5,6 +5,9 @@ phases:
       nodejs: 10
       python: 3.8
     commands:
+      - apt-get -q update
+      - apt-get -q -y install jq
+      - jq --version
       - pip install --upgrade pip
       - pip install pipenv --user
       - pipenv install awscli aws-sam-cli
