@@ -13,8 +13,8 @@ phases:
       - pip -q install aws-sam-cli
   build:
     commands:
-      # - pipenv run sam build
-      - ./test.sh
+      - pipenv run sam package --template-file template.yaml --s3-bucket pipeline-bucket-test-manpreet --output-template-file packaged-template.yaml
+      # - ./test.sh
   # post_build:
   #   commands:
   #     - pipenv run sam package --template-file template.yaml --s3-bucket pipeline-bucket-test-manpreet --output-template-file packaged-template.yaml
