@@ -5,18 +5,19 @@ phases:
       nodejs: 10
       python: 3.8
     commands:
+      - python -V
       - apt-get -q update
       - apt-get -q -y install jq
       - jq --version
-      - pip install --upgrade pip
-      - pip install pipenv --user
-      - pipenv install awscli aws-sam-cli
+      - pip -q install awscli
+      - pip -q install aws-sam-cli
   build:
     commands:
-      - pipenv run sam build
-  post_build:
-    commands:
-      - pipenv run sam package --template-file template.yaml --s3-bucket pipeline-bucket-test-manpreet --output-template-file packaged-template.yaml
+      # - pipenv run sam build
+      - ./test.sh
+  # post_build:
+  #   commands:
+  #     - pipenv run sam package --template-file template.yaml --s3-bucket pipeline-bucket-test-manpreet --output-template-file packaged-template.yaml
 artifacts:
   files:
     - packaged-template.yaml
